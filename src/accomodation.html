@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomodation | Villa Caceres Hotel</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-poppins">
+        <!-- Navigation -->
+        <!-- Navigation -->
+<nav class="bg-white opacity-90 shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="text-3xl font-bold text-[#504B38]">Villa Caceres Hotel</div>
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="index.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">HOME</a>
+            <a href="accomodation.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">ACCOMODATION</a>
+            <a href="amenities.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">AMENITIES</a>
+            <a href="contact.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">CONTACT US</a>
+            <a href="booking.html" class="text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-1 rounded-2xl">BOOK NOW</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-[#504B38] focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md px-4 py-2 absolute top-16 right-4 w-48 rounded-lg z-50">
+        <a href="index.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">HOME</a>
+        <a href="accomodation.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">ACCOMODATION</a>
+        <a href="amenities.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">AMENITIES</a>
+        <a href="contact.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">CONTACT US</a>
+        <a href="booking.html" class="block text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-2 rounded-2xl text-center">BOOK NOW</a>
+    </div>
+</nav>
+
+    <section class="container mx-auto mt-20 px-4 py-10">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="/assets/img/standard single.webp" alt="Deluxe Room" class="w-full h-56 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-poppins text-[#504B38]">Single Standard</h2>
+                    <p class="text-gray-600">Experience the comfort with our single standard rooms.</p>
+                    <button onclick="openModal('single-standard')" class="text-poppins w-full bg-[#504B38] text-white py-2 mt-2 hover:bg-[#B9B28A] rounded-lg">VIEW DETAILS</button>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="/assets/img/standard double.webp" alt="Suite Room" class="w-full h-56 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-poppins text-[#504B38]">Standard Double</h2>
+                    <p class="text-gray-600">Our suite rooms provide extra space and a touch of elegance.</p>
+                    <button onclick="openModal('standard-double')" class="text-poppins w-full bg-[#504B38] text-white py-2 mt-2 hover:bg-[#B9B28A] rounded-lg">VIEW DETAILS</button>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="/assets/img/family suite.webp" alt="Family Room" class="w-full h-56 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-poppins text-[#504B38]">Family Suite</h2>
+                    <p class="text-gray-600">Perfect for families, offering comfort and convenience.</p>
+                    <button onclick="openModal('family-suite')" class="text-poppins w-full bg-[#504B38] text-white py-2 mt-2 hover:bg-[#B9B28A] rounded-lg">VIEW DETAILS</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mx-auto mt-20">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="/assets/img/exe double.webp" alt="Deluxe Room" class="w-full h-56 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-poppins text-[#504B38]">Executive Twin</h2>
+                    <p class="text-gray-600 font-poppins">A cozy and stylish room featuring two single beds, perfect for business travelers or friends seeking comfort and convenience.</p>
+                    <button onclick="openModal('executive-twin')" class="text-poppins w-full bg-[#504B38] text-white py-2 mt-2 hover:bg-[#B9B28A] rounded-lg">VIEW DETAILS</button>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="/assets/img/executive suite.webp" alt="Suite Room" class="w-full h-56 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-poppins text-[#504B38]">Executive Suite</h2>
+                    <p class="text-gray-600 font-poppins">An elegant suite with a spacious layout, refined décor, and premium amenities, ideal for a luxurious stay.</p>
+                    <button onclick="openModal('executive-suite')" class="text-poppins w-full bg-[#504B38] text-white py-2 mt-2 hover:bg-[#B9B28A] rounded-lg">VIEW DETAILS</button>
+                </div>
+            </div>
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="/assets/img/exe double.webp" alt="Family Room" class="w-full h-56 object-cover">
+                <div class="p-4">
+                    <h2 class="text-2xl font-poppins text-[#504B38]">Presidential Suite</h2>
+                    <p class="text-gray-600 font-poppins">A sophisticated and spacious suite designed for ultimate comfort, perfect for families or VIP guests seeking an upscale experience.</p>
+                    <button onclick="openModal('presidential-suite')" class="text-poppins w-full bg-[#504B38] text-white py-2 mt-2 hover:bg-[#B9B28A] rounded-lg">VIEW DETAILS</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="roomModal" class="fixed inset-0 z-50 bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white p-6 rounded-xl w-11/12 max-w-2xl relative border-2 border-[#504B38] shadow-2xl">
+            <button class="absolute top-4 right-4 text-2xl font-bold text-gray-500 hover:text-[#B9B28A]" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle" class="text-2xl font-poppins font-bold text-[#504B38] mb-4"></h2>
+            <div id="modalContent" class="text-gray-600 font-poppins mb-4">
+                <!-- Dynamic content will be injected here -->
+            </div>
+            <button id="bookNowBtn" class="text-poppins w-full bg-[#504B38] text-white py-2 hover:bg-[#B9B28A] rounded-lg">BOOK NOW</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 mt-8">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600 font-poppins">© 2025 Villa Caceres Hotel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Room details data
+        const roomDetails = {
+            'single-standard': {
+                title: 'Single Standard',
+                description: 'A cozy room perfect for solo travelers. Features include a comfortable single bed, high-speed Wi-Fi, a work desk, and a modern bathroom with complimentary toiletries.',
+                amenities: ['Single Bed', 'Wi-Fi', 'Work Desk', 'Bathroom with Toiletries'],
+                image: '/assets/img/standard single.webp'
+            },
+            'standard-double': {
+                title: 'Standard Double',
+                description: 'Ideal for couples or small groups, this room offers a spacious double bed, flat-screen TV, minibar, and a private bathroom with a rain shower.',
+                amenities: ['Double Bed', 'Flat-Screen TV', 'Minibar', 'Rain Shower'],
+                image: '/assets/img/standard double.webp'
+            },
+            'family-suite': {
+                title: 'Family Suite',
+                description: 'Designed for families, this suite includes two bedrooms, a living area, a kitchenette, and a large bathroom with a bathtub.',
+                amenities: ['Two Bedrooms', 'Living Area', 'Kitchenette', 'Bathtub'],
+                image: '/assets/img/family suite.webp'
+            },
+            'executive-twin': {
+                title: 'Executive Twin',
+                description: 'Perfect for business travelers, this room offers two single beds, a spacious work area, high-speed internet, and access to our executive lounge.',
+                amenities: ['Two Single Beds', 'Work Area', 'High-Speed Internet', 'Executive Lounge Access'],
+                image: '/assets/img/exe double.webp'
+            },
+            'executive-suite': {
+                title: 'Executive Suite',
+                description: 'A luxurious suite with a king-size bed, separate living room, premium amenities, and stunning city views.',
+                amenities: ['King-Size Bed', 'Living Room', 'Premium Amenities', 'City Views'],
+                image: '/assets/img/executive suite.webp'
+            },
+            'presidential-suite': {
+                title: 'Presidential Suite',
+                description: 'Our most luxurious offering, featuring multiple bedrooms, a private dining area, a jacuzzi, and personalized butler service.',
+                amenities: ['Multiple Bedrooms', 'Private Dining Area', 'Jacuzzi', 'Butler Service'],
+                image: '/assets/img/exe double.webp'
+            }
+        };
+
+        // Function to open modal and populate content
+        function openModal(roomId) {
+            const modal = document.getElementById('roomModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const bookNowBtn = document.getElementById('bookNowBtn');
+            const room = roomDetails[roomId];
+            
+            if (room) {
+                modalTitle.textContent = room.title;
+                modalContent.innerHTML = `
+                    <p>${room.description}</p>
+                    <h3 class="text-lg font-poppins font-semibold text-[#504B38] mt-4">Amenities:</h3>
+                    <ul class="list-disc list-inside">
+                        ${room.amenities.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                `;
+                bookNowBtn.onclick = () => {
+                    window.location.href = 'booking.html';
+                };
+                
+                // Simple display toggle using Tailwind classes
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        // Function to close modal
+        function closeModal() {
+            const modal = document.getElementById('roomModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('roomModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amenities | Villa Caceres Hotel</title>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body class=" bg-gray-100 font-poppins">
+            <!-- Navigation -->
+            <!-- Navigation -->
+<nav class="bg-white opacity-90 shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="text-3xl font-bold text-[#504B38]">Villa Caceres Hotel</div>
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="index.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">HOME</a>
+            <a href="accomodation.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">ACCOMODATION</a>
+            <a href="amenities.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">AMENITIES</a>
+            <a href="contact.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">CONTACT US</a>
+            <a href="booking.html" class="text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-1 rounded-2xl">BOOK NOW</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="menu-btn" class="text-[#504B38] focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md px-4 py-2 absolute top-16 right-4 w-48 rounded-lg z-50">
+        <a href="index.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">HOME</a>
+        <a href="accomodation.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">ACCOMODATION</a>
+        <a href="amenities.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">AMENITIES</a>
+        <a href="contact.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">CONTACT US</a>
+        <a href="booking.html" class="block text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-2 rounded-2xl text-center">BOOK NOW</a>
+    </div>
+</nav>
+
+    <!-- Amenities Section -->
+    <section class="mt-20">
+        <!-- Swiper Carousel -->
+        <div class="swiper mySwiper w-screen h-[600px]">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative w-full h-full">
+                    <img src="../assets/img/spa.webp" alt="Spa" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                    <img src="../assets/img/pool.webp" alt="Pool" class="w-full h-full object-cover">
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                    <img src="../assets/img/restaurant.webp" alt="Restaurant" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Swiper Navigation and Pagination -->
+            <div class="swiper-button-next !top-1/2 !-translate-y-1/2 after:!text-[#504B38] after:!text-3xl"></div>
+            <div class="swiper-button-prev !top-1/2 !-translate-y-1/2 after:!text-[#504B38] after:!text-3xl"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+        <!-- Amenities List Section -->
+        <section class="container mx-auto px-6 py-12">
+            <h2 class="text-3xl font-semibold text-[#504B38] text-center mb-6">Our Amenities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <img src="/assets/img/steam room.webp" alt="Spa" class="w-12 h-12">
+                    <p class="text-lg text-gray-700">Luxurious Spa & Steam Room</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <img src="/assets/img/pool.webp" alt="Swimming Pool" class="w-12 h-12">
+                    <p class="text-lg text-gray-700">Outdoor Swimming Pool</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <img src="/assets/img/fitness center.webp" alt="Fitness Center" class="w-12 h-12">
+                    <p class="text-lg text-gray-700">Fully Equipped Fitness Center</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <img src="/assets/img/restaurant.webp" alt="Restaurant" class="w-12 h-12">
+                    <p class="text-lg text-gray-700">Fine Dining Restaurant</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <img src="/assets/img/pool resto.webp" alt="Bar & Lounge" class="w-12 h-12">
+                    <p class="text-lg text-gray-700">Bar & Lounge</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <img src="/assets/img/conference room.webp" alt="Conference Hall" class="w-12 h-12">
+                    <p class="text-lg text-gray-700">Conference & Meeting Rooms</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <p class="text-lg text-gray-700">High-Speed Wi-Fi</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <p class="text-lg text-gray-700">Free Secure Parking</p>
+                </div>
+                <div class="bg-white shadow-md p-6 rounded-lg flex items-center space-x-4">
+                    <p class="text-lg text-gray-700">24/7 Room Service</p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6 mt-8">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-600 font-poppins">© 2025 Villa Caceres Hotel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+
+</html>
