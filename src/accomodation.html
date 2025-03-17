@@ -10,34 +10,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-poppins">
-        <!-- Navigation -->
-        <!-- Navigation -->
-<nav class="bg-white opacity-90 shadow-md fixed top-0 left-0 w-full z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div class="text-3xl font-bold text-[#504B38]">Villa Caceres Hotel</div>
-        <div class="hidden md:flex items-center space-x-6">
-            <a href="index.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">HOME</a>
-            <a href="accomodation.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">ACCOMODATION</a>
-            <a href="amenities.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">AMENITIES</a>
-            <a href="contact.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">CONTACT US</a>
-            <a href="booking.html" class="text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-1 rounded-2xl">BOOK NOW</a>
+    <!-- Navigation -->
+    <nav class="bg-white opacity-90 shadow-md fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-3xl font-bold text-[#504B38]">Villa Caceres Hotel</div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">HOME</a>
+                <a href="accomodation.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">ACCOMODATION</a>
+                <a href="amenities.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">AMENITIES</a>
+                <a href="contact.html" class="text-lg text-[#504B38] hover:text-gray-600 px-3 py-1">CONTACT US</a>
+                <a href="booking.html" class="text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-1 rounded-2xl">BOOK NOW</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-[#504B38] focus:outline-none focus:ring-2 focus:ring-[#504B38] rounded" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-            <button id="menu-btn" class="text-[#504B38] focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md px-4 py-2 absolute top-16 right-4 w-48 rounded-lg z-50 transition-opacity duration-300">
+            <a href="index.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2 focus:outline-none focus:bg-gray-100">HOME</a>
+            <a href="accomodation.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2 focus:outline-none focus:bg-gray-100">ACCOMODATION</a>
+            <a href="amenities.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2 focus:outline-none focus:bg-gray-100">AMENITIES</a>
+            <a href="contact.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2 focus:outline-none focus:bg-gray-100">CONTACT US</a>
+            <a href="booking.html" class="block text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-2 rounded-2xl text-center focus:outline-none focus:ring-2 focus:ring-[#504B38]">BOOK NOW</a>
         </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md px-4 py-2 absolute top-16 right-4 w-48 rounded-lg z-50">
-        <a href="index.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">HOME</a>
-        <a href="accomodation.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">ACCOMODATION</a>
-        <a href="amenities.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">AMENITIES</a>
-        <a href="contact.html" class="block text-lg text-[#504B38] hover:text-gray-600 px-3 py-2">CONTACT US</a>
-        <a href="booking.html" class="block text-lg text-white bg-[#504B38] hover:bg-[#B9B28A] px-3 py-2 rounded-2xl text-center">BOOK NOW</a>
     </div>
 </nav>
 
@@ -100,7 +100,7 @@
     <!-- Modal -->
     <div id="roomModal" class="fixed inset-0 z-50 bg-opacity-50 hidden items-center justify-center">
         <div class="bg-white p-6 rounded-xl w-11/12 max-w-2xl relative border-2 border-[#504B38] shadow-2xl">
-            <button class="absolute top-4 right-4 text-2xl font-bold text-gray-500 hover:text-[#B9B28A]" onclick="closeModal()">&times;</button>
+            <button class="absolute top-4 right-4 text-2xl font-bold text-gray-500 hover:text-[#B9B28A]" onclick="closeModal()">×</button>
             <h2 id="modalTitle" class="text-2xl font-poppins font-bold text-[#504B38] mb-4"></h2>
             <div id="modalContent" class="text-gray-600 font-poppins mb-4">
                 <!-- Dynamic content will be injected here -->
@@ -117,6 +117,30 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', !isExpanded);
+            // Toggle opacity for smooth transition
+            if (!isExpanded) {
+                mobileMenu.classList.add('opacity-100');
+            } else {
+                mobileMenu.classList.remove('opacity-100');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('opacity-100');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
         // Room details data
         const roomDetails = {
             'single-standard': {
@@ -151,7 +175,7 @@
             },
             'presidential-suite': {
                 title: 'Presidential Suite',
-                description: 'Our most luxurious offering, featuring multiple bedrooms, a private dining area, a jacuzzi, and personalized butler service.',
+                description: 'Facilitating the ultimate in luxury, this suite features multiple bedrooms, a private dining area, a jacuzzi, and personalized butler service.',
                 amenities: ['Multiple Bedrooms', 'Private Dining Area', 'Jacuzzi', 'Butler Service'],
                 image: '/assets/img/exe double.webp'
             }
