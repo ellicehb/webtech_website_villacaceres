@@ -44,6 +44,26 @@
         <h1 class="text-4xl font-poppins text-center text-[#504B38] mb-6">Book Your Stay</h1>
         <form id="bookingForm" class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto" onsubmit="return validateForm(event)">
             <div class="mb-4">
+                <label class="block text-gray-700 font-poppins" for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#504B38]">
+                <span id="fullNameError" class="text-red-500 text-sm font-poppins hidden"></span>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-poppins" for="address">Address</label>
+                <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#504B38]">
+                <span id="addressError" class="text-red-500 text-sm font-poppins hidden"></span>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-poppins" for="contactNo">Contact No.</label>
+                <input type="tel" id="contactNo" name="contactNo" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#504B38]">
+                <span id="contactNoError" class="text-red-500 text-sm font-poppins hidden"></span>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-poppins" for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#504B38]">
+                <span id="emailError" class="text-red-500 text-sm font-poppins hidden"></span>
+            </div>
+            <div class="mb-4">
                 <label class="block text-gray-700 font-poppins" for="checkin">Check-in Date</label>
                 <input type="date" id="checkin" name="checkin" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#504B38]">
                 <span id="checkinError" class="text-red-500 text-sm font-poppins hidden"></span>
@@ -112,19 +132,17 @@
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
+    
         menuBtn.addEventListener('click', () => {
             const isExpanded = mobileMenu.classList.toggle('hidden');
             menuBtn.setAttribute('aria-expanded', !isExpanded);
-            // Toggle opacity for smooth transition
             if (!isExpanded) {
                 mobileMenu.classList.add('opacity-100');
             } else {
                 mobileMenu.classList.remove('opacity-100');
             }
         });
-
-        // Close mobile menu when clicking a link
+    
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -132,11 +150,15 @@
                 menuBtn.setAttribute('aria-expanded', 'false');
             });
         });
-
+    
         function validateForm(event) {
-            event.preventDefault(); // Prevent form submission
-
+            event.preventDefault();
+    
             // Get all form inputs and error elements
+            const fullName = document.getElementById('fullName').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const contactNo = document.getElementById('contactNo').value.trim();
+            const email = document.getElementById('email').value.trim();
             const checkin = document.getElementById('checkin').value;
             const checkout = document.getElementById('checkout').value;
             const adults = document.getElementById('adults').value;
@@ -144,39 +166,47 @@
             const roomtype = document.getElementById('roomtype').value;
             const rooms = document.getElementById('rooms').value;
             const successModal = document.getElementById('successMessage');
-
+    
+            const fullNameError = document.getElementById('fullNameError');
+            const addressError = document.getElementById('addressError');
+            const contactNoError = document.getElementById('contactNoError');
+            const emailError = document.getElementById('emailError');
             const checkinError = document.getElementById('checkinError');
             const checkoutError = document.getElementById('checkoutError');
             const adultsError = document.getElementById('adultsError');
             const childrenError = document.getElementById('childrenError');
             const roomtypeError = document.getElementById('roomtypeError');
             const roomsError = document.getElementById('roomsError');
-
+    
             let isValid = true;
-
+    
             // Get current date
             const today = new Date();
             today.setHours(0, 0, 0, 0);
-
+    
             // Convert input dates to Date objects
             const checkinDate = new Date(checkin);
             const checkoutDate = new Date(checkout);
-
+    
             // Validation functions
-            const clearErrors = () => [checkinError, checkoutError, adultsError, childrenError, roomtypeError, roomsError].forEach(error => {
+            const clearErrors = () => [
+                fullNameError, addressError, contactNoError, emailError,
+                checkinError, checkoutError, adultsError, childrenError,
+                roomtypeError, roomsError
+            ].forEach(error => {
                 error.classList.add('hidden');
                 error.textContent = '';
             });
-
-            const validateDate = (date, errorElement, message) => {
-                if (!date) {
+    
+            const validateRequired = (value, errorElement, message) => {
+                if (!value) {
                     errorElement.textContent = message;
                     errorElement.classList.remove('hidden');
                     return false;
                 }
                 return true;
             };
-
+    
             const validateNumber = (value, errorElement, min, max, emptyMsg, minMsg, maxMsg) => {
                 if (!value) {
                     errorElement.textContent = emptyMsg;
@@ -193,49 +223,94 @@
                 }
                 return true;
             };
-
+    
+            const validateEmail = (email, errorElement) => {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email) {
+                    errorElement.textContent = 'Email address cannot be empty';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                } else if (!emailRegex.test(email)) {
+                    errorElement.textContent = 'Please enter a valid email address';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                }
+                return true;
+            };
+    
+            const validatePhone = (phone, errorElement) => {
+                const phoneRegex = /^\+?[1-9]\d{1,14}$/; // Basic international phone number format
+                if (!phone) {
+                    errorElement.textContent = 'Contact number cannot be empty';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                } else if (!phoneRegex.test(phone)) {
+                    errorElement.textContent = 'Please enter a valid contact number (e.g., +639123456789)';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                }
+                return true;
+            };
+    
+            // Clear previous errors
+            clearErrors();
+    
+            // Full Name validation
+            if (!validateRequired(fullName, fullNameError, 'Full name cannot be empty')) {
+                isValid = false;
+            }
+    
+            // Address validation
+            if (!validateRequired(address, addressError, 'Address cannot be empty')) {
+                isValid = false;
+            }
+    
+            // Contact No. validation
+            if (!validatePhone(contactNo, contactNoError)) {
+                isValid = false;
+            }
+    
+            // Email validation
+            if (!validateEmail(email, emailError)) {
+                isValid = false;
+            }
+    
             // Check-in date validation
-            if (!validateDate(checkin, checkinError, 'Check-in date cannot be empty') || checkinDate < today) {
+            if (!validateRequired(checkin, checkinError, 'Check-in date cannot be empty') || checkinDate < today) {
                 if (checkinDate < today) checkinError.textContent = 'Check-in date cannot be in the past';
                 checkinError.classList.remove('hidden');
                 isValid = false;
-            } else {
-                checkinError.classList.add('hidden');
             }
-
+    
             // Check-out date validation
-            if (!validateDate(checkout, checkoutError, 'Check-out date cannot be empty') || (checkoutDate <= checkinDate && checkin)) {
+            if (!validateRequired(checkout, checkoutError, 'Check-out date cannot be empty') || (checkoutDate <= checkinDate && checkin)) {
                 if (checkoutDate <= checkinDate) checkoutError.textContent = 'Check-out date must be after check-in date';
                 checkoutError.classList.remove('hidden');
                 isValid = false;
-            } else {
-                checkoutError.classList.add('hidden');
             }
-
+    
             // Adults validation
             if (!validateNumber(adults, adultsError, 1, 20, 'Number of adults cannot be empty', 'Please enter at least 1 adult', 'Maximum 20 adults allowed')) {
                 isValid = false;
             }
-
+    
             // Children validation
             if (!validateNumber(children, childrenError, 0, 20, 'Number of children cannot be empty', 'Number of children cannot be negative', 'Maximum 20 children allowed')) {
                 isValid = false;
             }
-
+    
             // Room type validation
             if (!roomtype) {
                 roomtypeError.textContent = 'Please select a room type';
                 roomtypeError.classList.remove('hidden');
                 isValid = false;
-            } else {
-                roomtypeError.classList.add('hidden');
             }
-
+    
             // Number of rooms validation
             if (!validateNumber(rooms, roomsError, 1, 20, 'Number of rooms cannot be empty', 'Please enter at least 1 room', 'Maximum 20 rooms allowed')) {
                 isValid = false;
             }
-
+    
             // If all validations pass, show success modal
             if (isValid) {
                 successModal.classList.remove('hidden');
@@ -243,8 +318,7 @@
                 successModal.querySelector('div').classList.remove('scale-95');
                 successModal.setAttribute('aria-hidden', 'false');
                 successModal.querySelector('button').focus();
-
-                // Reset form and hide modal after 2 seconds (with manual close option)
+    
                 setTimeout(() => {
                     document.getElementById('bookingForm').reset();
                     clearErrors();
@@ -256,7 +330,7 @@
             
             return false;
         }
-
+    
         function closeModal() {
             const successModal = document.getElementById('successMessage');
             successModal.classList.add('opacity-0');
@@ -264,8 +338,8 @@
             setTimeout(() => {
                 successModal.classList.add('hidden');
                 successModal.setAttribute('aria-hidden', 'true');
-                document.querySelector('button[type="submit"]').focus(); // Return focus to submit button
-            }, 300); // Match transition duration
+                document.querySelector('button[type="submit"]').focus();
+            }, 300);
         }
     </script>
 </body>
